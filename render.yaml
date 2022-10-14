@@ -9,6 +9,9 @@ services:
     routes:
       - type: rewrite
         source: /*
+        destination: https://backend.onrender.com
+      - type: rewrite
+        source: /api
         destination: /index.html
     envVars:
       - key: REACT_API_URL
@@ -22,4 +25,4 @@ services:
     env: node
     rootDir: ./backend
     buildCommand: yarn
-    startCommand: node app.js
+    startCommand: yarn start
