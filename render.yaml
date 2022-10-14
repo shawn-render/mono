@@ -9,10 +9,10 @@ services:
     routes:
       - type: rewrite
         source: /*
-        destination: https://backend.onrender.com
+        destination: /index.html
       - type: rewrite
         source: /api
-        destination: /index.html
+        destination: https://backend.onrender.com
     envVars:
       - key: REACT_API_URL
         fromService: 
