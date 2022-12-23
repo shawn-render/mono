@@ -5,6 +5,9 @@ services:
     name: frontend
     env: static
     rootDir: ./frontend
+    buildFilter:
+      ignoredPaths:
+      - frontend/pay_no_attention/*.txt
     buildCommand: yarn build
     staticPublishPath: ./build
     envVars:
