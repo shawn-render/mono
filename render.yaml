@@ -1,0 +1,41 @@
+ # A static site
+# previewsEnabled: true
+services:
+  - type: web
+    name: frontend
+    env: static
+    repo: https://github.com/mmaddex/mono.git
+    rootDir: ./frontend
+    buildFilter:
+      ignoredPaths:
+      - frontend/pay_no_attention/*.txt
+    buildCommand: yarn build
+    staticPublishPath: ./build
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: backend
+          property: host
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://backend.onrender.com/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
+  - type: web
+    repo: https://github.com/mmaddex/mono.git
+    name: backend
+    env: node
+    rootDir: ./backend
+    buildCommand: yarn
+    startCommand: yarn start
+    
+envVarGroups:
+  - name: auth
+    envVars:
+      - key: AUTH_SECRET
+        sync: false
+      - key: INTERNAL_API_TOKEN
+        sync: false
