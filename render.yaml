@@ -9,6 +9,7 @@ services:
     buildFilter:
       ignoredPaths:
       - frontend/pay_no_attention/*.txt
+      - made/up/path/*
     buildCommand: yarn build
     staticPublishPath: ./build
     autoDeploy: false
