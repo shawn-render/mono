@@ -1,5 +1,5 @@
  # A static site
-previewsEnabled: true
+previewsEnabled: false
 services:
   - type: web
     name: frontend
@@ -10,6 +10,7 @@ services:
       - frontend/pay_no_attention/*.txt
     buildCommand: yarn build
     staticPublishPath: ./build
+    autoDeploy: false
     envVars:
       - key: API_URL
         fromService:
@@ -25,6 +26,7 @@ services:
         destination: /index.html
   - type: web
     name: backend
+    autoDeploy: false
     env: node
     rootDir: ./backend
     buildCommand: yarn
