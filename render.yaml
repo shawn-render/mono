@@ -5,12 +5,14 @@ services:
     name: frontend
     env: static
     rootDir: ./frontend
+    repo: https://github.com/shawn-render/mono.git
     buildFilter:
       ignoredPaths:
         - frontend/pay_no_attention/*.txt
     buildCommand: yarn build
     staticPublishPath: ./build
   - type: web
+    repo: https://github.com/shawn-render/mono.git
     name: backend
     env: node
     rootDir: ./backend
