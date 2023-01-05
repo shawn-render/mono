@@ -4,6 +4,7 @@ services:
   - type: web
     name: frontend
     env: static
+    repo: https://github.com/shawn-render/mono.git
     rootDir: ./frontend
     buildFilter:
       ignoredPaths:
@@ -26,6 +27,7 @@ services:
         source: /*
         destination: /index.html
   - type: web
+    repo: https://github.com/shawn-render/mono.git
     name: backend
     autoDeploy: false
     env: node
